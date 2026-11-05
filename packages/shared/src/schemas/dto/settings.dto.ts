@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import { CreateSettingInput, UpdateSettingInput, UpsertSettingInput } from '../../domain'
-import { SettingSchema, SettingValueSchema } from '../setting.schema'
+import { SettingSchema, SettingValueSchema } from '../entities'
 
 export const GetSettingsRequestSchema = yup.object({})
 

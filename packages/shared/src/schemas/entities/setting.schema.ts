@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { Setting, SettingValue } from '../domain'
+import { Setting, SettingValue } from '../../domain'
 
 export const SettingValueSchema = yup
   .mixed<SettingValue>()

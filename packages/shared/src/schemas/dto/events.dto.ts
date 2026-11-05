@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { EventSchema } from '../event.schema'
+import { EventSchema } from '../entities'
 
 export const GetPaginatedEventsResponseSchema = yup.object({
   data: yup.array(EventSchema).required(),

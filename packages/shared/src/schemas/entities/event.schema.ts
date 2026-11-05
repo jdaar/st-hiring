@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { Event } from '../domain'
+import { Event } from '../../domain'
 import { TicketSchema } from './ticket.schema'
 
 export const EventSchema: yup.ObjectSchema<Event> = yup.object({

@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { Ticket } from '../domain'
+import { Ticket } from '../../domain'
 
 export const TicketSchema: yup.ObjectSchema<Ticket> = yup.object({
   id: yup.number().integer().required(),
