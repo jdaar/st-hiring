@@ -21,6 +21,9 @@
     "build": "tsup",
     "dev": "tsup --watch"
   },
+  "dependencies": {
+    "yup": "^1.4.0"
+  },
   "devDependencies": {
     "tsup": "^8.5.0",
     "typescript": "^5.5.2"

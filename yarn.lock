@@ -1881,6 +1881,7 @@ __metadata:
   dependencies:
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.5.2"
+    yup: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
 
