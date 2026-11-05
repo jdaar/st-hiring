@@ -13,7 +13,7 @@ export const createSuccessResponseSchema = <T>(bodySchema: yup.Schema<T>) =>
 export const FailureResponseSchema: yup.ObjectSchema<FailureResponse> = yup
   .object({
     isSuccess: yup.boolean<false>().oneOf([false]).required(),
-    errors: yup.array(ApplicationErrorSchema).min(1).required(),
+    error: ApplicationErrorSchema.required(),
   })
   .noUnknown()
 

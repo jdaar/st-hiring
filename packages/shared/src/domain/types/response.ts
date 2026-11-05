@@ -1,6 +1,6 @@
 import { ApplicationError } from './application-error'
 
-export type ApplicationErrorDetail = Pick<ApplicationError, 'code' | 'message'>
+export type SerializedApplicationError = Pick<ApplicationError, 'code' | 'message' | 'details'>
 
 export type SuccessResponse<T> = {
   isSuccess: true
@@ -9,7 +9,7 @@ export type SuccessResponse<T> = {
 
 export type FailureResponse = {
   isSuccess: false
-  errors: ApplicationErrorDetail[]
+  error: SerializedApplicationError
 }
 
 export const createSuccessResponse = <T>(body: T): SuccessResponse<T> => ({
@@ -17,7 +17,7 @@ export const createSuccessResponse = <T>(body: T): SuccessResponse<T> => ({
   body,
 })
 
-export const createFailureResponse = (...errors: ApplicationErrorDetail[]): FailureResponse => ({
+export const createFailureResponse = ({ code, message, details }: SerializedApplicationError): FailureResponse => ({
   isSuccess: false,
-  errors: errors.map(({ code, message }) => ({ code, message })),
+  error: details ? { code, message, details } : { code, message },
 })
