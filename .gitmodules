@@ -1,6 +1,6 @@
 [submodule "st-hiring-backend"]
-	path = st-hiring-backend
+	path = apps/backend
 	url = git@github.com:jdaar/st-hiring-backend.git
 [submodule "st-hiring-frontend"]
-	path = st-hiring-frontend
+	path = apps/frontend
 	url = git@github.com:jdaar/st-hiring-frontend.git
