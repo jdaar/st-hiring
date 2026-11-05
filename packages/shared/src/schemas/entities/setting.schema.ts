@@ -13,5 +13,6 @@ export const SettingSchema: yup.ObjectSchema<Setting> = yup.object({
   id: yup.string().required(),
   value: SettingValueSchema.required(),
   version: yup.number().integer().min(1).required(),
+  createdAt: yup.date().required(),
   updatedAt: yup.date().required(),
 })

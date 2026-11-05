@@ -4,5 +4,6 @@ export interface Setting {
   id: string
   value: SettingValue
   version: number
+  createdAt: Date
   updatedAt: Date
 }
