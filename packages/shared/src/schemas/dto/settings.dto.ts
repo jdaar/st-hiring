@@ -1,5 +1,6 @@
 import * as yup from 'yup'
-import { SettingSchema } from '../setting.schema'
+import { CreateSettingInput, UpdateSettingInput, UpsertSettingInput } from '../../domain'
+import { SettingSchema, SettingValueSchema } from '../setting.schema'
 
 export const GetSettingsRequestSchema = yup.object({})
 
@@ -11,12 +12,28 @@ export const GetSettingsResponseSchema = yup.object({
 
 export type GetSettingsResponse = yup.InferType<typeof GetSettingsResponseSchema>
 
-export const UpsertSettingRequestSchema = yup.object({
-  key: yup.string().required(),
-  value: yup.string().required(),
-})
+const CreateSettingRequestSchema: yup.ObjectSchema<CreateSettingInput> = yup
+  .object({
+    id: yup.string().required(),
+    value: SettingValueSchema.required(),
+  })
+  .noUnknown()
 
-export type UpsertSettingRequest = yup.InferType<typeof UpsertSettingRequestSchema>
+const UpdateSettingRequestSchema: yup.ObjectSchema<UpdateSettingInput> = yup
+  .object({
+    id: yup.string().required(),
+    value: SettingValueSchema.required(),
+    version: yup.number().integer().min(1).required(),
+  })
+  .noUnknown()
+
+export const UpsertSettingRequestSchema = yup.lazy((value: unknown) =>
+  typeof value === 'object' && value !== null && 'version' in value
+    ? UpdateSettingRequestSchema
+    : CreateSettingRequestSchema,
+)
+
+export type UpsertSettingRequest = UpsertSettingInput
 
 export const UpsertSettingResponseSchema = yup.object({
   data: SettingSchema.required(),

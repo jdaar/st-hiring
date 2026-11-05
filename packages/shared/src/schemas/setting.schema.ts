@@ -1,9 +1,17 @@
 import * as yup from 'yup'
-import { Setting } from '../domain'
+import { Setting, SettingValue } from '../domain'
+
+export const SettingValueSchema = yup
+  .mixed<SettingValue>()
+  .test(
+    'setting-value',
+    '${path} must be a string, number or boolean',
+    (value) => value === undefined || ['string', 'number', 'boolean'].includes(typeof value),
+  )
 
 export const SettingSchema: yup.ObjectSchema<Setting> = yup.object({
-  key: yup.string().required(),
-  value: yup.string().required(),
-  createdAt: yup.date().required(),
+  id: yup.string().required(),
+  value: SettingValueSchema.required(),
+  version: yup.number().integer().min(1).required(),
   updatedAt: yup.date().required(),
 })

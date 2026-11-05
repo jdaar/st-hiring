@@ -1,8 +1,5 @@
 import { Event } from '../entities'
 
 export interface EventsRepository {
-  getPaginatedEvents(
-    limit: number,
-    cursor: string | null,
-  ): Promise<{ events: Event[]; nextCursor: string | null }>
+  getPaginatedEvents(page: number, pageSize: number): Promise<{ events: Event[]; total: number }>
 }

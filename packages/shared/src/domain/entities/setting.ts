@@ -1,6 +1,8 @@
+export type SettingValue = string | number | boolean
+
 export interface Setting {
-  key: string
-  value: string
-  createdAt: Date
+  id: string
+  value: SettingValue
+  version: number
   updatedAt: Date
 }
