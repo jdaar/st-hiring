@@ -1,0 +1,6 @@
+[submodule "st-hiring-backend"]
+	path = st-hiring-backend
+	url = git@github.com:jdaar/st-hiring-backend.git
+[submodule "st-hiring-frontend"]
+	path = st-hiring-frontend
+	url = git@github.com:jdaar/st-hiring-frontend.git
