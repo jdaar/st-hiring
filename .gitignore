@@ -8,3 +8,6 @@ dist/
 .yarn/*
 !.yarn/releases
 .pnp.*
+
+# test coverage
+coverage/
