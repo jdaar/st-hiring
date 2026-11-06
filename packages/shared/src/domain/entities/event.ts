@@ -1,4 +1,4 @@
-import { Ticket } from './ticket'
+import { TicketTypeSummary } from './ticket'
 
 export interface Event {
   id: number
@@ -6,7 +6,7 @@ export interface Event {
   date: Date
   location: string
   description: string
-  availableTickets: Ticket[]
+  ticketTypes: TicketTypeSummary[]
   createdAt: Date
   updatedAt: Date
 }
