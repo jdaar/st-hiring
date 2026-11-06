@@ -21,15 +21,21 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint ."
   },
   "dependencies": {
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9",
     "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/eslint-plugin": "1.6.27",
+    "eslint": "^9",
+    "globals": "^17.14.0",
     "tsup": "^8.5.0",
     "typescript": "^5.5.2",
+    "typescript-eslint": "^8",
     "vitest": "^2.1.9"
   }
 }

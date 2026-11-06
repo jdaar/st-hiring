@@ -11,3 +11,12 @@ dist/
 
 # test coverage
 coverage/
+
+# sonar
+.scannerwork/
+.sonar-token
+dependency-check-report/
+.nvd-api-key
+
+# zap session, too large for git
+dast/zapsession.*
