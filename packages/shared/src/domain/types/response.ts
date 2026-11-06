@@ -12,6 +12,8 @@ export type FailureResponse = {
   error: SerializedApplicationError
 }
 
+export type ResponseBody<R> = Extract<R, { isSuccess: true }> extends SuccessResponse<infer T> ? T : never
+
 export const createSuccessResponse = <T>(body: T): SuccessResponse<T> => ({
   isSuccess: true,
   body,
