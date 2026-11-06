@@ -19,13 +19,17 @@
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
     "tsup": "^8.5.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "vitest": "^2.1.9"
   }
 }
