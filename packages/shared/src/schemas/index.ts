@@ -1,4 +1,6 @@
 export * from './application-error.schema'
+export * from './contract'
+export * from './contracts'
 export * from './dto'
 export * from './entities'
 export * from './request.schema'
