@@ -1,4 +1,5 @@
 export * from './application-error.schema'
 export * from './dto'
 export * from './entities'
+export * from './request.schema'
 export * from './response.schema'
