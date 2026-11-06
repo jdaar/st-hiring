@@ -1,6 +1,4 @@
-import { ApplicationError } from './application-error'
-
-export type SerializedApplicationError = Pick<ApplicationError, 'code' | 'message' | 'details'>
+import { SerializedApplicationError } from '../errors'
 
 export type SuccessResponse<T> = {
   isSuccess: true
