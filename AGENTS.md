@@ -58,7 +58,7 @@ src/
 ├── tracing.ts                  # OpenTelemetry SDK (http, express, pg, mongodb)
 ├── knexfile.ts
 ├── application/usecases/       # createXxxUseCase({ repository }) → async fn; createUseCases() wires them
-├── infrastructure/dal/         # createEventsRepository(knex), createSettingsRepository(db)
+├── dal/                        # createEventsRepository(knex), createSettingsRepository(db)
 ├── routes/
 │   ├── create-route.ts         # createRoute(contract, handler): validation + typed req/res + error forwarding
 │   └── v1/                     # events.routes.ts, settings.routes.ts, index.ts (createV1Router)
@@ -69,7 +69,7 @@ src/
     └── mongo-seeds/            # settings
 ```
 
-- Request pipeline: helmet → cors (`CORS_ORIGINS`) → `requireTransactionId` (`X-Transaction-Id`) → json → `/health` → v1 router → 404 → error handler.
+- Request pipeline: helmet → cors (`CORS_ORIGINS`) → `/health` → `requireTransactionId` (`X-Transaction-Id`) → json → v1 router → 404 → error handler.
 - Handlers respond with `createSuccessResponse(...)`; thrown `ApplicationError`s become failure envelopes in `errorHandler`.
 - Tests sit next to the source (`*.test.ts`, Vitest). Style: Prettier with single quotes, semicolons, `printWidth: 120`.
 - Scripts: `dev`, `test`, `test:coverage`, `lint`, `migrations:latest|down|make`, `db:seed`, `db:seed:mongo`, `db:seed:all`.
